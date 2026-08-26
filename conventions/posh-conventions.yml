@@ -1,0 +1,76 @@
+generated: '2026-08-26'
+method: probed
+source: 'live responses from https://api.poshdevelopment.com/api/v1 and https://poshie-chat-api.poshdevelopment.com/entry-answers.js'
+note: >-
+  Posh publishes no API reference, so nothing below is taken from documentation. Every entry is
+  either something a live unauthenticated response demonstrated, or is explicitly marked unknown.
+  Where a convention could not be observed it is left unknown rather than assumed from the stack.
+auth_style:
+  style: unknown
+  note: 'RBAC enforced at the gateway (403 "RBAC: access denied"); scheme not observable. See authentication/posh-authentication.yml.'
+versioning:
+  style: path
+  current: v1
+  base: https://api.poshdevelopment.com/api/v1
+  policy_published: false
+request_id_tracing:
+  supported: true
+  header: posh-correlation
+  example: '693966d6d52dfc8400da8b3c824956dc'
+  scope: response
+  note: >-
+    Observed on every response from api.poshdevelopment.com, including 404s. A 32-hex correlation
+    id is returned unprompted, which is a real and useful agent-facing signal: a client can quote
+    it to support without any additional instrumentation. Whether the header is also accepted on
+    request (client-supplied correlation) could not be tested without credentials.
+  secondary:
+    field: errorID
+    note: 'Error bodies additionally carry a per-response UUID (errorID) distinct from posh-correlation.'
+error_envelope:
+  shape: proprietary-json
+  rfc9457: false
+  reference: errors/posh-problem-types.yml
+  inconsistency: >-
+    Two different error formats are served depending on how far the request got: the application
+    returns a JSON envelope, while the RBAC layer returns a bare text/plain string. A client must
+    handle both.
+pagination:
+  style: unknown
+  note: 'No routed collection endpoint is reachable unauthenticated; no docs.'
+field_expansion:
+  supported: unknown
+metadata:
+  supported: unknown
+rate_limit_signaling:
+  headers_observed: []
+  note: 'No X-RateLimit-*, RateLimit-* or Retry-After headers appeared on any observed response. See rate-limits/posh-rate-limits.yml.'
+idempotency:
+  supported: unknown
+  header: null
+  note: >-
+    NOT ASSERTED. No idempotency header was observable on an unauthenticated 404, and Posh
+    publishes no documentation of one. No Idempotency pointer is emitted in apis.yml — an
+    idempotency claim we cannot evidence would be a false credit on a 9-point dimension.
+dry_run_mode:
+  supported: unknown
+reversibility:
+  grade: unknown
+  state: undocumented
+  write_surface: unknown
+  operations: []
+  note: >-
+    Posh's platform plainly has write surfaces — Outreach launches proactive voice/SMS/email
+    campaigns, the Portal edits knowledge and behaviours, and the Voice Assistant executes
+    transactions and card controls against core banking systems. Whether any of those actions
+    can be cancelled, voided or rolled back through the API, and inside what window, is not
+    stated anywhere public. This is recorded as UNKNOWN, not as `na`: `na` would claim the API is
+    read-only, which it demonstrably is not, and a stated window we did not read would be the one
+    error in this pipeline that could cost a Posh customer real money. It is also the most
+    consequential public gap in Posh's surface: an agent driving an outreach campaign to a
+    financial institution's members has no published way to know whether a send can be recalled.
+cross_links:
+  errors: errors/posh-problem-types.yml
+  authentication: authentication/posh-authentication.yml
+  lifecycle: lifecycle/posh-lifecycle.yml
+  rate_limits: rate-limits/posh-rate-limits.yml
+  components: components/posh-components.yml

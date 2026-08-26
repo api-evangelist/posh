@@ -1,18 +1,83 @@
 aid: posh
 name: Posh
-description: 'Posh is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Posh (Posh AI, legally Posh Technologies) is a Boston-headquartered, remote-first
+  conversational and agentic AI company founded in 2018 by Karan Kashyap and Matt McEachern
+  out of MIT''s AI lab. Posh builds AI purpose-built for regulated financial institutions —
+  banks and credit unions — combining voice, digital, knowledge and outreach agents on a single
+  governed platform driven by its proprietary REALM reasoning engine and "Operating Procedures"
+  that pair LLM flexibility with code-level policy control. Its product line spans a Voice
+  Assistant for phone banking, a Digital Assistant for web and mobile chat, a Knowledge Assistant
+  for employee search, Posh Answers for website search, Posh Outreach for proactive campaigns,
+  Posh Simulator for role-play training and Posh CoachQA for quality assurance, all managed from
+  the no-code Posh Portal. Posh reports 125+ financial-institution clients and 300+ deployments,
+  and integrates with core banking and contact-center platforms including Symitar, Fiserv,
+  Corelation, Jack Henry, NICE CXone, Genesys Cloud, RingCentral and Five9. Posh operates a
+  private, customer-facing HTTP API behind its portal for custom reporting and system
+  integration; that API''s reference is not published publicly.'
+image: https://cdn.prod.website-files.com/633d9e1c482aac9825b27b50/69656b01d26df273a9279698_webclip.png
 url: https://raw.githubusercontent.com/api-evangelist/posh/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
-- Company
-apis: []
+- Artificial Intelligence
+- Conversational AI
+- Agentic AI
+- Banking
+- Credit Unions
+- Financial Services
+- Customer Service
+- Contact Center
+- Voice
+- Chatbots
+- Knowledge Management
+- Regtech
+apis:
+- name: Posh Platform API
+  description: 'Posh''s customer-facing HTTP API, served from the same gateway that backs the
+    Posh Portal. Posh describes it on its portal page as a "powerful API" that "automates custom
+    reporting" and connects the portal directly to internal tools and systems. The gateway is
+    live and answers unauthenticated requests with a structured JSON error envelope, but its
+    reference surface at /api-docs is RBAC-gated (HTTP 403 "RBAC: access denied") and no
+    OpenAPI/Swagger document is published on any Posh host.'
+  humanURL: https://www.posh.ai/portal
+  baseURL: https://api.poshdevelopment.com/api/v1
+  x-ownership: >-
+    OWNERSHIP CHECK (STEP 0c). The API and the Posh Portal are served from poshdevelopment.com,
+    not posh.ai. That is justified from Posh's own pages: www.posh.ai/portal links directly to
+    https://app.poshdevelopment.com/login as the portal sign-in, and www.posh.ai's own homepage
+    loads its Posh Answers embed from https://poshie-chat-api.poshdevelopment.com/entry-answers.js.
+    That shipped loader additionally hard-codes Posh's development, staging and UAT hosts under
+    poshdevelopment.com and posh.build. poshdevelopment.com is Posh's product domain; posh.ai is
+    its marketing domain.
+  x-contract-discovery: >-
+    NO MACHINE-READABLE CONTRACT IS PUBLISHED. STEP 0b was run in full against every host.
+    (1) REST: /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs,
+    /redoc probed on www.posh.ai, api.poshdevelopment.com, app.poshdevelopment.com and
+    poshie-chat-api.poshdevelopment.com — all 404, 403 or SPA shell. api.poshdevelopment.com/api-docs
+    is the one real hit and returns HTTP 403 "RBAC: access denied". (2) GraphQL: /graphql 404 on the
+    API host; no GraphQL surface named anywhere. (3) MCP: mcp.posh.ai NXDOMAIN, no server — see
+    mcp/posh-mcp.yml. (4) A2A: /.well-known/agent-card.json and /.well-known/agent.json probed on six
+    hosts, all negative — see well-known/posh-well-known.yml. No a2a/ artifact is written.
+    Subdomain sweep (api, app, docs, developer, portal, dashboard, console, admin, mcp, status,
+    support, help, trust on posh.ai): only app/api/poshie-chat on poshdevelopment.com resolve.
+  tags:
+  - Reporting
+  - Analytics
+  - Conversational AI
+  properties:
+  - type: Authentication
+    url: authentication/posh-authentication.yml
+  - type: ErrorCatalog
+    url: errors/posh-problem-types.yml
+  - type: Conventions
+    url: conventions/posh-conventions.yml
+  - type: RateLimits
+    url: rate-limits/posh-rate-limits.yml
+  - type: Plans
+    url: plans/posh-plans-pricing.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +85,61 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.posh.ai/
+- type: SignUp
+  url: https://www.posh.ai/demo
+- type: Login
+  url: https://app.poshdevelopment.com/login
+- type: Blog
+  url: https://www.posh.ai/blog
+- type: Support
+  url: https://www.posh.ai/contact
+- type: TermsOfService
+  url: https://cdn.prod.website-files.com/61eb2514f01c7b377af34831/622bb1c684167fcca5a82a3d_posh-terms-of-use.pdf
+- type: PrivacyPolicy
+  url: https://www.posh.ai/security-privacy-policy
+- type: StatusPage
+  url: https://poshtechnologies.statuspage.io/
+- type: TrustCenter
+  url: https://security.posh.ai/
+- type: Security
+  url: https://security.posh.ai/item/responsible-disclosure-policy
+- type: Compliance
+  url: conformance/posh-conformance.yml
+- type: Conformance
+  url: conformance/posh-conformance.yml
+- type: LLMsTxt
+  url: llms/posh-llms.txt
+- type: Lifecycle
+  url: lifecycle/posh-lifecycle.yml
+- type: VulnerabilityDisclosure
+  url: security/posh-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/posh-domain-security.yml
+- type: Components
+  url: components/posh-components.yml
+- type: SecondaryMarketListing
   url: https://forgeglobal.com/posh_stock/
+x-enrichment:
+  date: '2026-08-26'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Posh runs a real, live API gateway at api.poshdevelopment.com whose reference surface at
+    /api-docs returns HTTP 403 with the body "RBAC: access denied", so the contract is readable
+    only to an authenticated tenant of the Posh Portal — there is no public developer portal,
+    docs host or spec anywhere on posh.ai or poshdevelopment.com.
+  evidence:
+    - url: https://api.poshdevelopment.com/api-docs
+      status: 403
+    - url: https://api.poshdevelopment.com/api/v1
+      status: 404
+    - url: https://www.posh.ai/openapi.json
+      status: 404
+    - url: https://www.posh.ai/llms.txt
+      status: 200
+  checked: '2026-08-26'

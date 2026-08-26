@@ -1,0 +1,22 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.posh.ai/sitemap.xml + https://www.posh.ai/demo
+plan_count: 0
+pricing_page: null
+currency: null
+plans: []
+note: >-
+  Posh publishes NO pricing of any kind. https://www.posh.ai/pricing returns 404, and a scan of
+  all 412 URLs in Posh's own sitemap contains no pricing, plans or packaging page. The only
+  commercial entry point is a demo request form at https://www.posh.ai/demo, which routes to a
+  HubSpot form and a thank-you page. This is an enterprise contact-sales motion aimed at bank and
+  credit-union procurement, which is consistent with the 8-10 week deployment timeline Posh
+  advertises. Recorded as an explicit zero rather than omitted.
+evidence:
+  - url: https://www.posh.ai/pricing
+    status: 404
+  - url: https://www.posh.ai/demo
+    status: 200
+  - url: https://www.posh.ai/sitemap.xml
+    status: 200
+    note: 412 URLs, zero pricing pages

@@ -1,0 +1,51 @@
+generated: '2026-08-26'
+method: searched
+source: https://poshtechnologies.statuspage.io/api/v2/summary.json + https://www.posh.ai/llms.txt
+status_page:
+  url: https://poshtechnologies.statuspage.io/
+  provider: Atlassian Statuspage
+  page_id: wy75qh84xkb6
+  page_name: Posh Technologies
+  machine_readable: https://poshtechnologies.statuspage.io/api/v2/summary.json
+  time_zone: America/New_York
+  advertised_in_llms_txt: true
+  components:
+    - name: Posh Portal
+      since: '2023-08-29'
+      description: Client-facing tool including data, logs, content management, user management and client-facing configuration
+    - name: Voice Assistants
+      since: '2021-11-17'
+    - name: Digital Assistants
+      since: '2021-11-17'
+      description: Any Posh product deployed to digital channels, e.g. website or digital banking
+    - name: Posh Answers
+      since: '2024-10-11'
+versioning:
+  scheme: path
+  evidence: 'Observed base path /api/v1 on https://api.poshdevelopment.com; /api (no version) 404s with an empty body while /api/v1 404s with the structured JSON envelope, which shows v1 is a routed, live version prefix.'
+  current_version: v1
+  policy_published: false
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    No public deprecation or versioning policy was found on any Posh surface, and no Sunset or
+    Deprecation response header could be observed because every routed endpoint is authenticated.
+    No Deprecation pointer is emitted in apis.yml.
+sla:
+  published: false
+  note: 'No public uptime SLA. The trust center commits to incident response within 72 hours, which is a security-incident commitment, not an availability SLA.'
+changelog:
+  published: false
+  note: >-
+    Posh publishes no dated product changelog. The closest public release record is the press
+    section (https://www.posh.ai/press), which announces launches — Posh CoachQA, Posh Outreach,
+    Posh Answers — but is not versioned or dated as a changelog. No ChangeLog pointer emitted.
+evidence:
+  - url: https://poshtechnologies.statuspage.io/
+    status: 200
+  - url: https://poshtechnologies.statuspage.io/api/v2/summary.json
+    status: 200
+  - url: https://api.poshdevelopment.com/api/v1
+    status: 404

@@ -1,0 +1,63 @@
+# Posh AI
+
+> Posh AI provides conversational and agentic AI solutions for banks and credit unions. The platform delivers 24/7 customer service, employee productivity tools, and operational automation through voice, digital, and knowledge-based AI agents powered by proprietary Operating Procedures and the REALM reasoning engine.
+
+Posh AI was founded in 2018 by Karan Kashyap and Matt McEachern out of MIT's AI lab and is headquartered in Boston, Massachusetts, operating remote-first. Posh AI serves 125+ financial institutions with 300+ deployments, including DCU, MassMutual Credit Union, Florida Credit Union, and SalemFive.
+
+## AI Products
+
+- [Voice Assistant](https://www.posh.ai/voice-banking-assistant): 24/7 conversational AI for phone banking that handles balance inquiries, loan payments, transactions, card controls, and intelligent call routing with multi-factor authentication and core system integration across NICE CXone, Genesys Cloud, RingCentral, Symitar, Fiserv, and Corelation platforms
+- [Digital Assistant](https://www.posh.ai/digital-assistant): AI chatbot for website and mobile app chat support providing authenticated self-service, seamless escalation to human agents, and personalized experiences with real-time answer updates through the Posh Portal
+- [Knowledge Assistant](https://www.posh.ai/knowledge-assistant): Employee-facing generative AI search tool that reduces search time by 93%, connects to SharePoint and document repositories, delivers role-specific answers with citations in under 7 seconds, and cuts employee onboarding time by 4x
+- [Posh Answers](https://www.posh.ai/answers): Website search AI that surfaces instant, compliant answers from knowledge bases and website content, increases application completions and lead captures, and reduces bounce rates through conversational guidance
+- [Posh Outreach](https://www.posh.ai/outreach): Proactive AI agents that initiate conversations across voice, SMS, email, push notifications, and personalized microsites for CD maturities, pre-approved offers, and onboarding campaigns with built-in compliance controls
+- [Posh Simulator](https://www.posh.ai/ai-training-simulator): AI-powered role-play training platform with voice and text scenarios, custom scoring for empathy, compliance, and accuracy, pre-built BFSI scenarios across roles, performance dashboards, and custom member personas for realistic practice
+- [Posh CoachQA](https://www.posh.ai/coachqa): Quality assurance AI that evaluates 100% of voice and chat interactions against SOPs, surfaces compliance gaps, fraud attempts, missed revenue opportunities, and escalation patterns with audit-ready insights
+
+## Platform and Technology
+
+- [Posh Platform](https://www.posh.ai/platform): Unified agentic AI platform built on REALM (proprietary reasoning engine) with Operating Procedures that combine LLM flexibility and code-level control for adaptive, policy-compliant automation across voice, digital, and internal workflows
+- [Posh Portal](https://www.posh.ai/portal): No-code management interface for configuring AI assistants across channels with Knowledge Studio for centralized content, Custom Behaviors for response control, Smart Assessments to identify knowledge gaps, and real-time analytics with transcript search and export capabilities
+- [Integrations](https://www.posh.ai/integrations): Core banking integrations with Symitar, Fiserv, Corelation, Jack Henry; contact center platforms including NICE CXone, Genesys Cloud, RingCentral, Five9; connects to SharePoint, document repositories, and internal knowledge bases with 8-10 week deployment timeline
+
+## Solutions by Institution Type
+
+- [AI for Banks](https://www.posh.ai/ai-in-banking): Growth acceleration through digital concierges, operational efficiency with unified knowledge, compliance confidence with full traceability and audit-ready governance, employee enablement with 93% reduction in search time and 4x faster onboarding
+- [AI for Credit Unions](https://www.posh.ai/ai-for-credit-unions): Member experience automation, 24/7 service availability, and employee productivity solutions with voice-based biometric authentication, knowledge assistants for staff, and training simulators for new hires
+
+## Solutions by Team
+
+- [Customer Experience Teams](https://www.posh.ai/ai-for-customer-experience-teams): Zero wait time with instant answers, 24/7 availability, seamless AI-to-agent escalation, consistent experience across voice, digital, and branch channels with 91% voice interaction containment and 4x increase in employee retention
+- [Call Centers](https://www.posh.ai/ai-for-call-center): Automates repetitive call volume, eliminates hold times, provides real-time agent support with Knowledge Assistant, reduces agent burnout, 93% voice interaction containment, 92% faster response speed, and 4x increase in agent retention
+- [Information & Technology Teams](https://www.posh.ai/ai-for-it-teams): Fast deployment in 8-10 weeks, no rip-and-replace infrastructure changes, SOC 2 Type II and CSA STAR certified security, role-based access control, encryption at rest and in transit, integration with existing core and contact center systems
+- [Digital Experience Teams](https://www.posh.ai/ai-for-digital-experience-teams): Self-service chat that deflects routine volume, increases website conversion with AI-powered answers, personalized digital journeys, insights from every interaction, 99% chat containment rate, 79% wait time reduction
+- [Learning & Development Teams](https://www.posh.ai/ai-for-ld-hr-teams): AI-powered onboarding with Simulator role-play scenarios, Knowledge Assistant for instant policy answers, 4x reduction in onboarding length, standardized training across departments without increasing manager workload
+- [Marketing Teams](https://www.posh.ai/ai-for-marketing-teams): Proactive outreach campaigns, lead generation through Posh Answers, cross-sell opportunities surfaced by Digital Assistant, real-time customer intent data, personalized engagement across voice, SMS, email, and microsites
+- [Innovation Teams](https://www.posh.ai/ai-for-innovation-teams): Enterprise-grade AI with fast ROI, multi-department scalability across CX, digital, lending, and L&D, self-service configuration without coding, SOC 2 certified security, unlimited use cases from single platform
+- [Lending Teams](https://www.posh.ai/ai-for-lending-teams): Loan officer support with instant answers to mortgage guidelines, secondary market policy reconciliation, borrower question handling, automated document review against compliance criteria, Knowledge Assistant reduces search time by 93%
+
+## Security and Compliance
+
+- [Trust Center](https://www.posh.ai/trust): SOC 2 Type II certified, SOC 3, CSA STAR for AI, Trustworthy AI Pledge signatory; multi-factor authentication, role-based access control, continuous monitoring, encryption at rest (AES-256) and in transit (TLS 1.2+), penetration testing, disaster recovery testing, complete audit trails, incident response within 72 hours
+- [Privacy Policy](https://www.posh.ai/security-privacy-policy): GDPR, CCPA, UKGDPR, and Swiss Data Protection Act 2020 compliant; privacy-by-design methodology, data protection impact assessments, voice-based biometric authentication only with opt-in consent, data deletion procedures, no selling of personal information
+- [Data Processing Addendum](https://www.posh.ai/data-processing): Defines processor/sub-processor relationships, personal data categories, data subject rights (access, rectification, erasure, portability), 72-hour breach notification, annual audit reports available, authorized sub-processors include Google, Salesforce, Twilio, OpenAI, Illuma Labs, Atlassian
+
+## Company Information
+
+- [Who We Are](https://www.posh.ai/who-we-are): Team serving 125+ financial institutions with mission to accelerate responsible AI adoption for financial institutions, helping them serve communities with accessible, consistent, and personal experiences across voice and digital channels
+- [Careers](https://www.posh.ai/careers): Remote-first company with Boston office, offers unlimited PTO, 13 paid holidays, 9 growth days for skill development, paid parental leave, health and wellness stipend, professional development stipend, competitive salary with equity grants, 401k, medical/dental/vision insurance
+- [Resource Hub](https://www.posh.ai/resource-hub): Blog articles on banking AI, client stories showcasing results, industry news and press releases, events and webinars, infographics, ebooks including production data reports analyzing millions of customer conversations
+
+## Resources and Updates
+
+- [Client Stories](https://www.posh.ai/client-stories): Case studies featuring results across banks and credit unions including containment rates, onboarding reductions, annual savings, ROI improvements, and abandonment decreases
+- [News & Press](https://www.posh.ai/press): Product launches including CoachQA for quality assurance, Outreach for proactive AI agents, first large-scale production data report on AI in banking analyzing millions of conversations across 125+ institutions, CU*SOUTH partnership announcement
+- [Blog](https://www.posh.ai/blog): Articles on AI deployment strategy, outreach campaigns vs traditional marketing, simulation-based training science, Operating Procedures technology explainers, moments of change for AI implementation
+- [Infographics](https://www.posh.ai/infographics): Visual guides on fueling frontline workers with AI, humanizing HR with AI, lightening the load for loan officers with AI-powered knowledge search
+
+## Optional
+
+- [System Status](https://poshtechnologies.statuspage.io/): Real-time system performance monitoring for Posh AI platform uptime and service availability
+- [Trust Center Portal](https://security.posh.ai/): Detailed security documentation, compliance certifications, infrastructure reports, subprocessor transparency, responsible AI policies, DR/BCP procedures
+
+Last updated: June 30, 2026

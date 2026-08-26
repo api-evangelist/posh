@@ -1,0 +1,31 @@
+generated: '2026-08-26'
+method: searched
+source: 'host probes of every Posh domain + web search for a Posh MCP server, 2026-08-26'
+status: none
+tools: []
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: >-
+  Posh ships NO MCP server, remote or local. mcp.posh.ai does not resolve (NXDOMAIN); no MCP
+  endpoint is named in Posh's own llms.txt, which is otherwise a detailed and current inventory of
+  everything Posh publishes; no @posh/* MCP package exists on npm or PyPI. No candidate tool list
+  was derived either, because there is no OpenAPI to derive one from — a derived tool list built
+  from nothing would be invention, and a guessed endpoint URL would be worse. mode is recorded as
+  `none` and NO MCPServer pointer is emitted in apis.yml.
+  Worth noting for context, since it is easy to misread: Posh sells agentic AI and describes
+  "Agents" as its product, but those are Posh's own hosted assistants serving a bank's customers
+  and staff. They are not an agent surface Posh exposes to third-party agents. The two are
+  different things and only the second one is what MCPServer asserts.
+evidence:
+  - url: https://mcp.posh.ai/
+    status: 'NXDOMAIN — no DNS record'
+  - url: https://www.posh.ai/llms.txt
+    status: 200
+    note: 'complete provider-authored inventory; contains no MCP, API or developer entry'
+  - url: https://api.poshdevelopment.com/api-docs
+    status: 403

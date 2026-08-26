@@ -1,0 +1,9 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.posh.ai/llms.txt
+note: >-
+  Saved verbatim from Posh AI's own host. HTTP 200, content-type text/plain, 9,994 bytes.
+  This is a real, provider-authored llms.txt — not a generated fallback — and it is the single
+  richest machine-readable surface Posh publishes. It carries no API/developer section, which is
+  consistent with every other probe in this pass: Posh's HTTP API exists but its reference is not
+  public. No llms-full.txt is published (not probed as served).

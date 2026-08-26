@@ -1,0 +1,65 @@
+generated: '2026-08-26'
+method: searched
+probe: true
+source: https://security.posh.ai/
+url: https://security.posh.ai/
+platform: SafeBase (posh.portals.safebase.io)
+note: >-
+  security.posh.ai is a CNAME to posh.portals.safebase.io. It returns HTTP 403 to a plain
+  command-line agent (bot challenge) but renders normally in a browser, so it is live, not dead.
+  Content below was read from the rendered page on 2026-08-26.
+certifications:
+  - name: SOC 2 Type II
+    year: '2025'
+    note: report available on request through the trust center
+  - name: SOC 3
+    year: '2025'
+  - name: CSA STAR
+    note: Cloud Security Alliance STAR, and CSA STAR for AI
+  - name: CSA AI Trustworthy Pledge
+    year: '2025'
+    note: signatory commitment, not a certification
+external_ratings:
+  - name: SecurityScorecard
+    grade: A
+  - name: Qualys SSL Labs
+    grade: A+
+controls_published:
+  - multi-factor authentication
+  - role-based access control
+  - continuous monitoring
+  - encryption at rest (AES-256)
+  - encryption in transit (TLS 1.2+)
+  - penetration testing
+  - disaster recovery testing
+  - complete audit trails
+  - incident response within 72 hours
+subprocessors:
+  - Google (Google Cloud Platform, Google Gemini)
+  - OpenAI
+  - Twilio
+  - Salesforce
+  - Atlassian
+  - Deepgram
+  - Rime AI
+  - Illuma Labs
+  - Elastic
+  - Supabase
+  - Groundcover
+  - Unstructured
+subprocessor_note: >-
+  Union of the subprocessor list rendered on the trust center and the list named in Posh's
+  Data Processing Addendum (https://www.posh.ai/data-processing).
+certification_pages:
+  - https://www.posh.ai/certification/soc-2-attestation
+  - https://www.posh.ai/certification/cloud-star-level-1-accreditation
+  - https://www.posh.ai/certification/fdic-certified-hosting-partners
+  - https://www.posh.ai/certification/audit-planning
+evidence:
+  - url: https://security.posh.ai/
+    status: 403
+    note: 403 to curl (bot challenge); rendered successfully via browser-equivalent fetch
+  - url: https://www.posh.ai/trust
+    status: 200
+  - url: https://www.posh.ai/certification/soc-2-attestation
+    status: 200

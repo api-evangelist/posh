@@ -1,0 +1,65 @@
+generated: '2026-08-26'
+method: probed
+source: https://api.poshdevelopment.com/api/v1 (live unauthenticated response, 2026-08-26)
+format: proprietary-json
+rfc9457: false
+note: >-
+  DERIVED FROM NOTHING BUT WHAT THE GATEWAY ACTUALLY RETURNED. Posh publishes no error reference
+  and no OpenAPI, so the envelope below was read off a live unauthenticated response rather than
+  from documentation. Only the two response shapes actually observed are recorded; the full error
+  registry is behind the RBAC-gated /api-docs and is NOT guessed at here.
+envelope:
+  content_type: application/json; charset=utf-8
+  fields:
+    - name: errorID
+      type: string
+      description: Per-response UUID. Changes on every request, so it is a request-scoped incident id, not an error class.
+    - name: code
+      type: integer
+      description: Posh's own numeric error code. 1001 observed for a routing miss.
+    - name: name
+      type: string
+      description: Error class name, e.g. NotFoundError.
+    - name: desc
+      type: string
+      description: Human-readable summary, e.g. "Page was not found".
+    - name: reason
+      type: string
+      description: Specific cause, echoing the path, e.g. "/ not found".
+    - name: extras
+      type: object
+      description: 'Nested detail: httpCode (int), errorType ("user" observed), httpStatus (e.g. "NOT FOUND").'
+    - name: errorTimestamp
+      type: string
+      format: date-time
+      description: ISO 8601 UTC timestamp of the failure.
+  example: |
+    {"errorID":"c4ce181c-54b5-474b-904b-e8fb9a22b446","code":1001,"name":"NotFoundError",
+     "desc":"Page was not found","reason":"/ not found",
+     "extras":{"httpCode":404,"errorType":"user","httpStatus":"NOT FOUND"},
+     "errorTimestamp":"2026-08-26T18:28:59.342Z"}
+problem_types:
+  - code: 1001
+    name: NotFoundError
+    http_status: 404
+    error_type: user
+    title: Page was not found
+    detail: Returned when the requested path is not routed under /api/v1.
+    observed: true
+    source: https://api.poshdevelopment.com/api/v1
+  - code: null
+    name: RBAC access denied
+    http_status: 403
+    title: 'RBAC: access denied'
+    detail: >-
+      Returned by https://api.poshdevelopment.com/api-docs as a bare text/plain body
+      ("RBAC: access denied", 19 bytes) — NOT the JSON envelope above. The authorization layer
+      short-circuits before the JSON error handler, so a client sees two different error formats
+      depending on whether the request reached the application.
+    observed: true
+    content_type: text/plain
+    source: https://api.poshdevelopment.com/api-docs
+coverage:
+  observed_count: 2
+  documented_count: 0
+  note: 'Posh publishes no error-code reference. 2 of an unknown total were observed live; the numeric code space (1001 seen) implies a registry that is not public.'

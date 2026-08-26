@@ -1,0 +1,113 @@
+generated: '2026-08-26'
+method: probed
+source: https://poshie-chat-api.poshdevelopment.com/entry-answers.js (fetched 2026-08-26, HTTP 200, 4,529 bytes, application/javascript)
+note: >-
+  This artifact is read from the SHIPPED LOADER, not from documentation — Posh publishes no
+  developer docs for its embeds. The loader was found on Posh's own homepage (www.posh.ai loads
+  it in a script tag), which both proves it is first-party and makes every behaviour below
+  directly observable. Nothing here is inferred beyond what the script itself does. This is the
+  only client-side integration surface Posh exposes to the public web.
+families:
+  - name: Posh Answers
+    kind: hosted-embed
+    description: >-
+      Website search / answers agent embedded on a financial institution's own site. The loader
+      injects a fixed, full-viewport sandboxed iframe (id "posh-answers") that renders the
+      Answers UI from the Posh Portal application host, hidden until opened.
+    loader:
+      url: https://poshie-chat-api.poshdevelopment.com/entry-answers.js
+      registry: cdn
+      version: null
+      version_note: >-
+        The distribution is UNPINNED — the script tag references a bare entry-answers.js with no
+        version in the path and no integrity attribute, so it floats to whatever Posh has
+        deployed. A consumer cannot tell what build they are loading, and neither can we. There
+        is no registry metadata endpoint to query (this is not an npm/CDN-registry package), so
+        version is recorded as null rather than guessed.
+      module_type: ES module
+    install:
+      html: |
+        <script
+          src="https://poshie-chat-api.poshdevelopment.com/entry-answers.js"
+          data-org_id="<org id>"
+          data-user_key="<user key>"
+          data-trigger_selector="<optional CSS selector>"
+          type="module"></script>
+      required_attributes:
+        - data-org_id
+        - data-user_key
+      optional_attributes:
+        - data-trigger_selector
+      note: >-
+        The loader warns to console ("data-org_id and data-user_key are required!") and does
+        nothing if either attribute is missing. Both values can also be supplied as URL query
+        parameters posh_org_id and posh_user_key, which override the script-tag attributes.
+    javascript_api:
+      - name: window.posh.answers.open()
+        description: Creates the iframe if absent, displays it, focuses it, and posts the host page URL and document title into it.
+      - name: window.posh.answers.close()
+        description: Hides the iframe and restores focus to the previously focused element.
+      - name: window.openPoshAnswers()
+        description: Alias of window.posh.answers.open().
+    trigger_binding:
+      selector_attribute: data-trigger_selector
+      max_elements: 15
+      description: 'Elements matching the selector have their onclick bound to open(); the loader binds at most the first 15 matches.'
+    postmessage_protocol:
+      - message: open
+        direction: host -> iframe
+      - message: close
+        direction: iframe -> host
+      - message: 'posh:answers:host-page-url:request'
+        direction: iframe -> host
+        description: The embedded agent asks the host page which URL it is running on.
+      - message: 'posh:answers:host-page-url:response'
+        direction: host -> iframe
+        payload: '{type, url, title?}'
+        description: >-
+          Host replies with the sanitized page origin+path (max 512 chars, http/https only,
+          trailing slashes stripped) and the document title truncated to 200 chars. The loader
+          validates message origin and source before responding.
+        note: 'This is how the Answers agent becomes page-aware — it is told what page the visitor is reading.'
+    security_posture:
+      iframe_sandbox:
+        - allow-same-origin
+        - allow-forms
+        - allow-scripts
+        - allow-modals
+        - allow-popups
+        - allow-popups-to-escape-sandbox
+        - allow-top-navigation
+        - allow-top-navigation-by-user-activation
+      origin_validation: true
+      origin_validation_note: 'Inbound postMessage handlers check both e.source (must be the iframe contentWindow) and e.origin (must equal the derived Answers origin) before acting.'
+      url_sanitization: 'Host page URL is parsed, protocol-checked (http/https only), path-normalized and length-capped before being posted to the iframe.'
+      subresource_integrity: false
+      sri_note: 'No integrity attribute on the loader script tag on www.posh.ai.'
+    environments:
+      production:
+        loader_host: https://poshie-chat-api.poshdevelopment.com
+        app_host: https://app.poshdevelopment.com
+        iframe_path_pattern: /answers/{orgId}/{userKey}
+      uat:
+        loader_host: https://poshie-chat-uat.poshdevelopment.com
+        app_host: https://app-uat.poshdevelopment.com
+      staging:
+        loader_host: https://poshie-chat-staging.posh.build
+        app_host: https://app-staging.poshdevelopment.com
+      development:
+        loader_host: https://poshie-chat-development.posh.build
+        app_host: https://app-development.posh.build
+    environment_note: >-
+      The production loader ships a hard-coded environment map that also names Posh's development,
+      staging and UAT hosts, including a second corporate domain (posh.build) that appears nowhere
+      in Posh's public marketing. Recorded because it is materially part of the shipped artifact
+      and establishes the poshdevelopment.com / posh.build hosts as Posh-operated.
+observed_deployments:
+  - host: https://www.posh.ai/
+    note: Posh runs its own Answers embed on its marketing site.
+not_found:
+  - kind: npm-distributed web component
+    note: 'No @posh/* or posh-* first-party package exists on npm; the embed is CDN-only and unversioned.'
+  - kind: documented embed reference
+    note: 'No public documentation page for the embed was found on any Posh host.'

@@ -64,5 +64,34 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Posh is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/posh_stock/
+Posh (Posh AI, legally Posh Technologies) is a Boston-headquartered, remote-first conversational and
+agentic AI company founded in 2018 by Karan Kashyap and Matt McEachern out of MIT's AI lab. Posh
+builds AI purpose-built for regulated financial institutions — banks and credit unions — spanning a
+Voice Assistant, Digital Assistant, Knowledge Assistant, Posh Answers, Posh Outreach, Posh Simulator
+and Posh CoachQA, all managed from the no-code Posh Portal and driven by its REALM reasoning engine.
+
+## What this profile found
+
+- **Posh publishes no machine-readable API contract.** Full STEP 0b contract discovery was run
+  against every host: no OpenAPI/Swagger, no GraphQL, no MCP server, no A2A agent card.
+- **An API does exist and is live.** `https://api.poshdevelopment.com/api/v1` answers unauthenticated
+  requests with a structured JSON error envelope and a `posh-correlation` request id. Its reference
+  at `/api-docs` returns HTTP 403 `RBAC: access denied` — customer-only.
+- **A genuine, current `llms.txt`** is served at <https://www.posh.ai/llms.txt> and is saved here
+  verbatim. It is the richest machine-readable thing Posh publishes.
+- **One public client-side surface**: the Posh Answers embed loader at
+  `poshie-chat-api.poshdevelopment.com/entry-answers.js`, documented in `components/` from the
+  shipped script — including its script-tag contract, `window.posh.answers` JS API, postMessage
+  protocol and iframe sandbox posture. It is unpinned and carries no subresource integrity.
+- **Strong published compliance posture**: SOC 2 Type II, SOC 3, CSA STAR, CSA STAR for AI, plus a
+  SafeBase trust center, a Responsible Disclosure Policy, an Atlassian status page and a DPA.
+- **Honest zeros**, all recorded with the probes behind them: no pricing, no published rate limits,
+  no SDKs in any registry, no `/.well-known` documents on any host, no changelog.
+
+### Source
+
+- <https://www.posh.ai/> — company site
+- <https://www.posh.ai/llms.txt> — provider-authored llms.txt
+- <https://security.posh.ai/> — trust center
+- <https://poshtechnologies.statuspage.io/> — status page
+- <https://forgeglobal.com/posh_stock/> — secondary-market listing that surfaced this company

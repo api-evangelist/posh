@@ -1,0 +1,85 @@
+generated: '2026-08-26'
+method: searched
+source: probed directly against every Posh host on 2026-08-26
+note: >-
+  Posh serves NO /.well-known documents on any host. Recorded as an honest absence: no
+  WellKnown and no SecurityTxt pointer is emitted in apis.yml, because every probed path
+  returned a negative. Two of the hosts are catch-alls and their status codes must be read
+  with that in mind — see soft_404_control below. www.posh.ai (Webflow) returns a distinct
+  88-byte 404 for /.well-known/* and a 77,863-byte HTML 404 page for other unknown paths.
+  app.poshdevelopment.com is a single-page app on CloudFront/S3 that answers HTTP 200 with an
+  identical 2,243-byte HTML shell for EVERY unknown path, so its 200s below are shells, not
+  documents, and are recorded as misses.
+hit_count: 0
+hosts:
+  - host: https://www.posh.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://api.poshdevelopment.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://app.poshdevelopment.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        note: S3 AccessDenied XML, 263 bytes — not a document
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: SPA catch-all shell, 2243 bytes text/html, byte-identical to /login — NOT a document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: SPA catch-all shell, 2243 bytes text/html — NOT a document
+      - path: /.well-known/agent-card.json
+        status: 403
+        note: S3 AccessDenied XML — not a document
+  - host: https://security.posh.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        note: SafeBase-hosted trust center returns a bot challenge to non-browser agents
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://collections-agencies.posh.ai
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://ai-for-collections.posh.ai
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+soft_404_control:
+  - host: https://www.posh.ai
+    probe: /zzz-nonexistent-control-1234
+    status: 404
+    bytes: 77863
+  - host: https://app.poshdevelopment.com
+    probe: /docs
+    status: 200
+    bytes: 2243
+    note: identical shell returned for /, /login, /docs, /api-docs — confirms catch-all

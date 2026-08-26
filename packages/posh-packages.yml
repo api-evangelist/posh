@@ -1,0 +1,57 @@
+generated: '2026-08-26'
+method: searched
+source: 'registry searches against npm, PyPI, RubyGems, crates.io, NuGet, Maven Central, pkg.go.dev and Packagist, plus the GitHub org, 2026-08-26'
+package_count: 0
+official_sdk_count: 0
+packages: []
+note: >-
+  Posh ships NO first-party client libraries in any public registry. Recorded as a checked zero,
+  not an unchecked gap. No SDKs pointer is emitted in apis.yml. This is consistent with the rest
+  of Posh's posture: the API is customer-only, so client libraries would be distributed to
+  customers rather than published.
+  CAUTION FOR ANY LATER PASS — the name "posh" is heavily contaminated on npm and PyPI by two
+  unrelated projects: "Oh My Posh" (the shell prompt theme engine, many packages) and a 2016
+  build-dependency tool at github.com/EricMCornelius/posh. PyPI "posh" (200) is likewise not this
+  company. None of these belong to Posh AI and none may be attributed to it.
+registries_probed:
+  - registry: npm
+    queries: ['posh', 'posh-ai', 'poshai', '@posh/sdk', 'posh-technologies']
+    first_party_hits: 0
+  - registry: pypi
+    queries: ['posh', 'posh-ai', 'poshai']
+    first_party_hits: 0
+    note: 'pypi.org/pypi/posh/json returns 200 but is an unrelated project; posh-ai and poshai are 404.'
+  - registry: rubygems
+    first_party_hits: 0
+  - registry: crates.io
+    first_party_hits: 0
+  - registry: nuget
+    first_party_hits: 0
+  - registry: maven-central
+    first_party_hits: 0
+  - registry: pkg.go.dev
+    first_party_hits: 0
+  - registry: packagist
+    first_party_hits: 0
+github_org:
+  url: https://github.com/Posh-Technologies
+  status: 200
+  created: '2020-05-29'
+  public_repos: 0
+  note: >-
+    A GitHub organization named Posh-Technologies exists and is public, but it has zero public
+    repositories, no description, no linked website and no verified domain, so ownership by this
+    company cannot be proven from the org itself. No GitHubOrganization pointer is emitted in
+    apis.yml — an unprovable, empty org is not a public code surface.
+cdn_distribution:
+  - name: Posh Answers embed loader
+    registry: cdn
+    url: https://poshie-chat-api.poshdevelopment.com/entry-answers.js
+    version: null
+    published: null
+    official: true
+    note: >-
+      The only publicly fetchable first-party JavaScript Posh ships. It is UNPINNED — no version
+      in the URL, no jsDelivr/unpkg listing, no integrity hash — so no version or publish date can
+      be read, by us or by a consumer. Fields are null-with-a-note (checked, nothing to record),
+      not omitted. Detail in components/posh-components.yml.

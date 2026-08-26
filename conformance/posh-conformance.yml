@@ -1,0 +1,69 @@
+generated: '2026-08-26'
+method: searched
+source: https://security.posh.ai/ + https://www.posh.ai/trust + https://www.posh.ai/security-privacy-policy + https://www.posh.ai/data-processing
+note: >-
+  Posh publishes no machine-readable contract, so nothing here is derived from a spec. Every
+  entry below is a claim Posh makes on its own trust center, certification pages, privacy policy
+  or DPA, with the page that carries it as evidence. Technical conformance (oauth2, rfc9457,
+  pagination, idempotency) could not be asserted either way: the API reference is RBAC-gated.
+standards:
+  - id: soc2-type2
+    conforms: true
+    evidence: 'SOC 2 Type II, 2025 report, available on request — https://security.posh.ai/ and https://www.posh.ai/certification/soc-2-attestation'
+  - id: soc3
+    conforms: true
+    evidence: 'SOC 3 report updated for 2025 — https://security.posh.ai/'
+  - id: csa-star
+    conforms: true
+    evidence: 'CSA STAR Level 1 accreditation — https://www.posh.ai/certification/cloud-star-level-1-accreditation'
+  - id: csa-star-for-ai
+    conforms: true
+    evidence: 'CSA STAR for AI listed on the trust center — https://security.posh.ai/'
+  - id: csa-ai-trustworthy-pledge
+    conforms: true
+    evidence: 'Signatory, CSA AI Trustworthy Pledge 2025 — https://security.posh.ai/'
+  - id: gdpr
+    conforms: true
+    evidence: 'Privacy policy states GDPR compliance, privacy-by-design methodology and DPIAs — https://www.posh.ai/security-privacy-policy'
+  - id: uk-gdpr
+    conforms: true
+    evidence: 'Named in the privacy policy alongside GDPR — https://www.posh.ai/security-privacy-policy'
+  - id: ccpa
+    conforms: true
+    evidence: 'Named in the privacy policy — https://www.posh.ai/security-privacy-policy'
+  - id: swiss-fadp-2020
+    conforms: true
+    evidence: 'Swiss Data Protection Act 2020 named in the privacy policy — https://www.posh.ai/security-privacy-policy'
+  - id: gdpr-art28-dpa
+    conforms: true
+    evidence: 'Published Data Processing Addendum defining processor/sub-processor relationships, data-subject rights and 72-hour breach notification — https://www.posh.ai/data-processing'
+  - id: tls-1-2-plus
+    conforms: true
+    evidence: 'Encryption in transit TLS 1.2+ claimed on the trust center; observed TLSv1.3 on www.posh.ai and api.poshdevelopment.com'
+  - id: oauth2
+    conforms: unknown
+    evidence: 'No /.well-known/oauth-authorization-server on any host (404); API reference RBAC-gated, so the auth scheme is not observable'
+  - id: oidc
+    conforms: unknown
+    evidence: 'No /.well-known/openid-configuration on any host (404 on api.poshdevelopment.com, SPA shell on app.poshdevelopment.com)'
+  - id: rfc9457
+    conforms: false
+    evidence: 'Observed error body on https://api.poshdevelopment.com/api/v1 is a proprietary JSON envelope (errorID/code/name/desc/reason/extras), content-type application/json — not application/problem+json'
+domain_standards:
+  note: >-
+    Posh sells into US banks and credit unions. The obvious domain standards for that market —
+    FDX, FAPI, ISO 20022, X12 — appear nowhere in Posh's published surface, and Posh is a
+    conversational-AI layer above the core, not a core banking or payments rail, so no domain
+    standard is expected here. Recorded as none-found rather than invented. Posh's own
+    integration posture is bilateral connectors to Symitar, Fiserv, Corelation, Jack Henry,
+    NICE CXone, Genesys Cloud, RingCentral and Five9 (38 named integrations), which is the
+    connector-per-partner pattern a domain standard would replace.
+  declared: []
+  probed_for:
+    - fdx
+    - fapi
+    - iso-20022
+    - x12
+    - scim
+    - odata
+  probe_basis: 'Posh publishes no contract; searched llms.txt, integrations pages and trust center for any of the above — no mention.'
