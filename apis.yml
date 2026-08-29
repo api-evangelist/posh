@@ -14,6 +14,17 @@ description: 'Posh (Posh AI, legally Posh Technologies) is a Boston-headquartere
   Corelation, Jack Henry, NICE CXone, Genesys Cloud, RingCentral and Five9. Posh operates a
   private, customer-facing HTTP API behind its portal for custom reporting and system
   integration; that API''s reference is not published publicly.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/633d9e1c482aac9825b27b50/69656b01d26df273a9279698_webclip.png
 url: https://raw.githubusercontent.com/api-evangelist/posh/refs/heads/main/apis.yml
 x-type: company
