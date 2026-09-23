@@ -1,0 +1,33 @@
+# Front Door AI Index — posh — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: posh
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.posh.ai
+  final_host: www.posh.ai
+  ownership: own
+  owner: posh
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 67
+  host_score: 67
+  density: 24.61
+  words: 2723
+  tiers:
+    agentic: 14
+    core: 53
+    model: 0
+  ambiguous: 22
+  top_terms:
+    AI: 52
+    agent: 17
+    AI agent: 4
+    agentic: 4
+    chatbot: 4
+    intelligence: 3
+    AI assistant: 2
+    automation: 2
+    LLMs: 1
