@@ -64,34 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Posh (Posh AI, legally Posh Technologies) is a Boston-headquartered, remote-first conversational and
-agentic AI company founded in 2018 by Karan Kashyap and Matt McEachern out of MIT's AI lab. Posh
-builds AI purpose-built for regulated financial institutions — banks and credit unions — spanning a
-Voice Assistant, Digital Assistant, Knowledge Assistant, Posh Answers, Posh Outreach, Posh Simulator
-and Posh CoachQA, all managed from the no-code Posh Portal and driven by its REALM reasoning engine.
+Posh (Posh AI, legally Posh Technologies) is a Boston-headquartered, remote-first conversational and agentic AI company founded in 2018 by Karan Kashyap and Matt McEachern out of MIT's AI lab. Posh builds AI purpose-built for regulated financial institutions — banks and credit unions — combining voice, digital, knowledge and outreach agents on a single governed platform driven by its proprietary REALM reasoning engine and "Operating Procedures" that pair LLM flexibility with code-level policy control. Its product line spans a Voice Assistant for phone banking, a Digital Assistant for web and mobile chat, a Knowledge Assistant for employee search, Posh Answers for website search, Posh Outreach for proactive campaigns, Posh Simulator for role-play training and Posh CoachQA for quality assurance, all managed from the no-code Posh Portal. Posh reports 125+ financial-institution clients and 300+ deployments, and integrates with core banking and contact-center platforms including Symitar, Fiserv, Corelation, Jack Henry, NICE CXone, Genesys Cloud, RingCentral and Five9. Posh operates a private, customer-facing HTTP API behind its portal for custom reporting and system integration; that API's reference is not published publicly.
 
-## What this profile found
+**Areas:** Artificial Intelligence · Conversational AI · AI Agents · Banking · Credit Union · Financial Services · Customer Service · Contact Center · Voice · Chatbots · Knowledge Management · RegTech
 
-- **Posh publishes no machine-readable API contract.** Full STEP 0b contract discovery was run
-  against every host: no OpenAPI/Swagger, no GraphQL, no MCP server, no A2A agent card.
-- **An API does exist and is live.** `https://api.poshdevelopment.com/api/v1` answers unauthenticated
-  requests with a structured JSON error envelope and a `posh-correlation` request id. Its reference
-  at `/api-docs` returns HTTP 403 `RBAC: access denied` — customer-only.
-- **A genuine, current `llms.txt`** is served at <https://www.posh.ai/llms.txt> and is saved here
-  verbatim. It is the richest machine-readable thing Posh publishes.
-- **One public client-side surface**: the Posh Answers embed loader at
-  `poshie-chat-api.poshdevelopment.com/entry-answers.js`, documented in `components/` from the
-  shipped script — including its script-tag contract, `window.posh.answers` JS API, postMessage
-  protocol and iframe sandbox posture. It is unpinned and carries no subresource integrity.
-- **Strong published compliance posture**: SOC 2 Type II, SOC 3, CSA STAR, CSA STAR for AI, plus a
-  SafeBase trust center, a Responsible Disclosure Policy, an Atlassian status page and a DPA.
-- **Honest zeros**, all recorded with the probes behind them: no pricing, no published rate limits,
-  no SDKs in any registry, no `/.well-known` documents on any host, no changelog.
+## Posh on APIs.io
 
-### Source
+Everything profiled for Posh is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/posh/](https://apis.io/providers/posh/)** — or go straight to one of the APIs or properties below.
 
-- <https://www.posh.ai/> — company site
-- <https://www.posh.ai/llms.txt> — provider-authored llms.txt
-- <https://security.posh.ai/> — trust center
-- <https://poshtechnologies.statuspage.io/> — status page
-- <https://forgeglobal.com/posh_stock/> — secondary-market listing that surfaced this company
+### APIs (1)
+
+- [Posh Platform API](https://apis.io/apis/posh/posh-platform-api/) — Posh's customer-facing HTTP API, served from the same gateway that backs the Posh Portal. Posh describes it on its portal page as a "powerful API" that…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Posh Authentication](https://apis.io/security/posh/posh-authentication/)
+- [Posh Domain Security](https://apis.io/security/posh/posh-domain-security/)
+- [Posh Trust Center](https://apis.io/security/posh/posh-trust-center/)
+- [Posh Vulnerability Disclosure](https://apis.io/security/posh/posh-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Posh Plans Pricing](https://apis.io/plans/posh/posh-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Posh Rate Limits](https://apis.io/rate-limits/posh/posh-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.posh.ai/)
+- [Sign up](https://www.posh.ai/demo)
+- [Support](https://www.posh.ai/contact)
+- [Blog](https://www.posh.ai/blog)
+- [Security](https://security.posh.ai/item/responsible-disclosure-policy)
+- [Trust centre](https://security.posh.ai/)
+- [Terms of service](https://cdn.prod.website-files.com/61eb2514f01c7b377af34831/622bb1c684167fcca5a82a3d_posh-terms-of-use.pdf)
+- [Privacy policy](https://www.posh.ai/security-privacy-policy)
+- [Status](https://poshtechnologies.statuspage.io/)
+
+## API Evangelist rating
+
+**Kin Score 27.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 50.0 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.7** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/posh/](https://apis.io/providers/posh/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Posh: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/posh/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
